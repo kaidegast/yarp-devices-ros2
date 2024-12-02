@@ -308,7 +308,7 @@ bool RgbdSensor_nws_ros2::setCamInfo(sensor_msgs::msg::CameraInfo& cameraInfo,
     parVector.emplace_back(cx,"principalPointX");
     parVector.emplace_back(cy,"principalPointY");
 
-    if (distModel != none)
+    if (distModel != "none")
     {
         parVector.emplace_back(k1,"k1");
         parVector.emplace_back(k2,"k2");
@@ -330,7 +330,7 @@ bool RgbdSensor_nws_ros2::setCamInfo(sensor_msgs::msg::CameraInfo& cameraInfo,
     cameraInfo.height               = sensorType == COLOR_SENSOR ? sensor_p->getRgbHeight() : sensor_p->getDepthHeight();
     cameraInfo.distortion_model     = distModel;
 
-    if (distModel != none)
+    if (distModel != "none")
     {
         cameraInfo.d.resize(5);
         cameraInfo.d[0] = k1;
